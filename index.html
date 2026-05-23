@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tomorowsfuel.com | Alternative Engineered Fuel</title>
+  <meta name="description" content="Alternative Engineered Fuel clean-energy publication portal by Secamore Owusu.A.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --navy: #0b1020;
+      --ink: #eef7ff;
+      --muted: #9fb0c8;
+      --cyan: #19c6c6;
+      --violet: #7b61ff;
+      --amber: #ffb020;
+      --rose: #ff5c8a;
+      --line: rgba(255,255,255,.12);
+      --panel: rgba(255,255,255,.07);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 72% 16%, rgba(123,97,255,.25), transparent 28rem),
+        radial-gradient(circle at 14% 28%, rgba(25,198,198,.18), transparent 24rem),
+        linear-gradient(180deg, #0b1020 0%, #10182d 48%, #070a13 100%);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(115deg, transparent 0 13%, rgba(25,198,198,.45) 13.1% 13.25%, transparent 13.35% 100%),
+        linear-gradient(37deg, transparent 0 24%, rgba(255,176,32,.35) 24.1% 24.22%, transparent 24.32% 100%),
+        linear-gradient(155deg, transparent 0 39%, rgba(123,97,255,.38) 39.1% 39.24%, transparent 39.34% 100%);
+      mask-image: radial-gradient(circle at center, #000 0%, transparent 76%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11,16,32,.82);
+      backdrop-filter: blur(18px);
+    }
+    nav { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0; }
+    .mark {
+      width: 36px; height: 36px; display: grid; place-items: center;
+      border: 1px solid rgba(25,198,198,.55);
+      background: linear-gradient(135deg, rgba(25,198,198,.2), rgba(123,97,255,.28));
+      box-shadow: 0 0 28px rgba(25,198,198,.22);
+    }
+    .links { display: flex; gap: 18px; color: var(--muted); font-size: 14px; }
+    .links a:hover { color: var(--ink); }
+    .hero { padding: 72px 0 56px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      align-items: center;
+      gap: 56px;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      font-size: clamp(46px, 7vw, 92px);
+      line-height: .94;
+      letter-spacing: 0;
+    }
+    .lead {
+      margin: 24px 0 0;
+      max-width: 720px;
+      color: #c6d3e8;
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.55;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.07);
+      color: var(--ink);
+      font-weight: 750;
+    }
+    .button.primary { background: linear-gradient(135deg, var(--cyan), var(--violet)); color: #fff; border: 0; }
+    .button.amber { border-color: rgba(255,176,32,.5); color: #ffe1a5; }
+    .cover {
+      min-height: 600px;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,.18);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)),
+        #0b1020;
+      box-shadow: 0 40px 90px rgba(0,0,0,.45);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0 28%, rgba(25,198,198,.14) 28.1% 28.35%, transparent 28.45% 100%),
+        linear-gradient(55deg, transparent 0 52%, rgba(123,97,255,.16) 52.1% 52.35%, transparent 52.45% 100%);
+      opacity: .85;
+    }
+    .cover-content { position: relative; z-index: 1; display: grid; min-height: 532px; align-content: space-between; }
+    .cover-top { color: var(--cyan); font-size: 12px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+    .cover-title { margin: 20px 0 14px; font-size: 48px; line-height: 1; font-weight: 900; }
+    .cover-sub { color: #c9d5ea; line-height: 1.45; }
+    .radar { width: 100%; aspect-ratio: 1; margin: 18px 0; }
+    .shield { color: var(--amber); font-weight: 900; font-size: 22px; }
+    .cover-meta { color: var(--muted); font-size: 13px; line-height: 1.6; }
+    section { padding: 62px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 28px; }
+    h2 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1; }
+    .section-head p { max-width: 620px; color: var(--muted); line-height: 1.65; margin: 0; }
+    .grid { display: grid; gap: 16px; }
+    .cards-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 22px;
+      min-height: 170px;
+    }
+    .card b { display: block; font-size: 19px; margin-bottom: 10px; }
+    .card p { color: var(--muted); line-height: 1.55; margin: 0; }
+    .tag { display: inline-block; margin-bottom: 16px; color: var(--cyan); font-size: 13px; font-weight: 850; }
+    .metric {
+      margin-top: 18px;
+      height: 10px;
+      background: rgba(255,255,255,.09);
+      overflow: hidden;
+    }
+    .metric span { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--violet)); }
+    .dash {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      padding: 24px;
+    }
+    .bars { display: grid; gap: 14px; }
+    .bar-row { display: grid; grid-template-columns: 96px 1fr 54px; align-items: center; gap: 12px; color: #dce8fb; }
+    .bar-track { height: 20px; background: rgba(255,255,255,.08); }
+    .bar { height: 100%; background: linear-gradient(90deg, #39a8e8, var(--cyan)); }
+    .sankey {
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .flow {
+      position: absolute;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(25,198,198,.15), rgba(25,198,198,.9), rgba(123,97,255,.75));
+      filter: drop-shadow(0 0 18px rgba(25,198,198,.35));
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+    .flow.one { width: 72%; transform: rotate(14deg); }
+    .flow.two { width: 58%; transform: rotate(-18deg); top: 62%; }
+    .flow.three { width: 48%; transform: rotate(0deg); top: 36%; background: linear-gradient(90deg, rgba(255,176,32,.12), rgba(255,176,32,.85)); }
+    @keyframes pulse { 50% { opacity: .58; transform: translateX(16px) rotate(var(--r, 0deg)); } }
+    footer { padding: 30px 0; color: var(--muted); border-top: 1px solid var(--line); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 920px) {
+      .hero-grid, .dash, .section-head { grid-template-columns: 1fr; display: grid; }
+      .cover { min-height: 520px; }
+      .cards-4, .cards-3 { grid-template-columns: 1fr 1fr; }
+      .links { display: none; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 28px, 1180px); }
+      .cards-4, .cards-3 { grid-template-columns: 1fr; }
+      .cover-title { font-size: 38px; }
+      .bar-row { grid-template-columns: 82px 1fr 44px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#"><span class="mark">T</span><span>tomorowsfuel.com</span></a>
+      <div class="links">
+        <a href="#goals">Goals</a>
+        <a href="#fuels">Fuels</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#author">Author</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Alternative Engineered Fuel Project</p>
+          <h1>Cleaner fuel decisions, engineered with data.</h1>
+          <p class="lead">A premium technical portal for comparative analysis of production, utilization, safety, carbon performance, infrastructure readiness, technology readiness, and scale for the global energy transition.</p>
+          <div class="actions">
+            <a class="button primary" href="#dashboard">Explore comparison</a>
+            <a class="button" href="#goals">Sustainable goals</a>
+            <a class="button amber" href="#author">Author information</a>
+          </div>
+        </div>
+        <aside class="cover" aria-label="Alternative Engineered Fuel book cover">
+          <div class="cover-content">
+            <div>
+              <div class="cover-top">Alternative Engineered Fuel</div>
+              <div class="cover-title">Alternative Engineered Fuel</div>
+              <div class="cover-sub">A Comprehensive Comparative Analysis of Production, Utilization, and Safety for Global Energy Transition</div>
+            </div>
+            <svg class="radar" viewBox="0 0 320 320" role="img" aria-label="MCDA radar diagram for cost carbon safety infrastructure TRL and scale">
+              <defs>
+                <linearGradient id="poly" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#19C6C6" stop-opacity=".72"/>
+                  <stop offset="1" stop-color="#7B61FF" stop-opacity=".72"/>
+                </linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <g transform="translate(160 160)" fill="none" stroke="rgba(255,255,255,.15)">
+                <polygon points="0,-116 100,-58 100,58 0,116 -100,58 -100,-58"/>
+                <polygon points="0,-86 74,-43 74,43 0,86 -74,43 -74,-43"/>
+                <polygon points="0,-56 48,-28 48,28 0,56 -48,28 -48,-28"/>
+                <line x1="0" y1="0" x2="0" y2="-130"/><line x1="0" y1="0" x2="113" y2="-65"/><line x1="0" y1="0" x2="113" y2="65"/>
+                <line x1="0" y1="0" x2="0" y2="130"/><line x1="0" y1="0" x2="-113" y2="65"/><line x1="0" y1="0" x2="-113" y2="-65"/>
+                <polygon points="0,-100 78,-45 62,36 0,82 -86,50 -70,-40" fill="url(#poly)" stroke="#8ff7ff" filter="url(#glow)"/>
+              </g>
+              <g fill="#dce8fb" font-size="12" font-weight="700" text-anchor="middle">
+                <text x="160" y="18">Cost</text><text x="286" y="92">Carbon</text><text x="288" y="235">Safety</text>
+                <text x="160" y="314">Infrastructure</text><text x="34" y="235">TRL</text><text x="34" y="92">Scale</text>
+              </g>
+            </svg>
+            <div>
+              <div class="shield">◇ ⚠</div>
+              <div class="cover-meta">Complete Edition (Volumes I-V)<br>Enhanced Version 8.1 · May 21, 2026<br>Prepared by Secamore Owusu.A</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+    <section id="goals">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Sustainable Goals</h2>
+          <p>tomorowsfuel.com connects technical fuel comparison with clean energy, lower environmental impact, responsible infrastructure, climate action, and safer deployment pathways.</p>
+        </div>
+        <div class="grid cards-4">
+          <article class="card"><span class="tag">SDG 7</span><b>Affordable Clean Energy</b><p>Compare fuel pathways by readiness, energy density, and realistic deployment constraints.</p></article>
+          <article class="card"><span class="tag">SDG 9</span><b>Resilient Infrastructure</b><p>Evaluate storage, distribution, safety systems, and industrial compatibility.</p></article>
+          <article class="card"><span class="tag">SDG 12</span><b>Responsible Production</b><p>Prioritize lifecycle thinking, cleaner synthesis routes, and evidence-based adoption.</p></article>
+          <article class="card"><span class="tag">SDG 13</span><b>Climate Action</b><p>Reduce carbon intensity and support transition strategies that can scale responsibly.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="fuels">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Fuel Pathways</h2>
+          <p>Hydrogen, compressed natural gas, and methanol are reviewed through the same practical lens: carbon, cost, safety, infrastructure, TRL, and scale.</p>
+        </div>
+        <div class="grid cards-3">
+          <article class="card"><span class="tag">Hydrogen</span><b>High energy per kg</b><p>Strong zero-use-emission pathway with storage, compression, and infrastructure challenges.</p><div class="metric"><span style="width:95%"></span></div></article>
+          <article class="card"><span class="tag">CNG</span><b>Transition-ready</b><p>Mature infrastructure and high readiness, with carbon intensity limits and methane leakage concerns.</p><div class="metric"><span style="width:72%"></span></div></article>
+          <article class="card"><span class="tag">Methanol</span><b>Liquid handling advantage</b><p>Flexible liquid fuel platform with strong logistics and synthetic production opportunities.</p><div class="metric"><span style="width:80%"></span></div></article>
+        </div>
+      </div>
+    </section>
+    <section id="dashboard">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Comparison Dashboard</h2>
+          <p>Core evidence from the publication is presented as a compact, scan-friendly dashboard for launch.</p>
+        </div>
+        <div class="dash">
+          <div class="panel">
+            <h3>Energy Density (MJ/kg)</h3>
+            <div class="bars">
+              <div class="bar-row"><span>Hydrogen</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span>120</span></div>
+              <div class="bar-row"><span>CNG</span><div class="bar-track"><div class="bar" style="width:42%"></div></div><span>50</span></div>
+              <div class="bar-row"><span>Methanol</span><div class="bar-track"><div class="bar" style="width:17%"></div></div><span>20</span></div>
+            </div>
+            <h3>Carbon Intensity (kg CO₂e/GJ)</h3>
+            <div class="bars">
+              <div class="bar-row"><span>Hydrogen</span><div class="bar-track"><div class="bar" style="width:7%;background:#19c6c6"></div></div><span>0.5</span></div>
+              <div class="bar-row"><span>CNG</span><div class="bar-track"><div class="bar" style="width:100%;background:#ff5c8a"></div></div><span>7.5</span></div>
+              <div class="bar-row"><span>Methanol</span><div class="bar-track"><div class="bar" style="width:53%;background:#ffb020"></div></div><span>4.0</span></div>
+            </div>
+          </div>
+          <div class="panel sankey">
+            <div class="flow one" style="--r:14deg"></div>
+            <div class="flow two" style="--r:-18deg"></div>
+            <div class="flow three" style="--r:0deg"></div>
+            <div style="position:relative;text-align:center">
+              <h3>Animated Energy Flow</h3>
+              <p style="color:var(--muted);max-width:380px;line-height:1.6">Production, conditioning, storage, distribution, and end-use flow are represented as a launch-ready visual pathway.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="author">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Author Information</h2>
+          <p>This publication portal is prepared for public launch and future expansion with the full redesigned PDF, charts, and data package.</p>
+        </div>
+        <div class="grid cards-3">
+          <article class="card"><span class="tag">Prepared by</span><b>Secamore Owusu.A</b><p>Author and research lead for the Alternative Engineered Fuel project.</p></article>
+          <article class="card"><span class="tag">Edition</span><b>Enhanced Version 8.1</b><p>Complete Edition (Volumes I-V), dated May 21, 2026.</p></article>
+          <article class="card"><span class="tag">Focus</span><b>MCDA + Energy Transition</b><p>Cost, carbon, safety, infrastructure, technology readiness, and scale.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>tomorowsfuel.com · Alternative Engineered Fuel</span>
+      <span>Prepared by Secamore Owusu.A</span>
+    </div>
+  </footer>
+</body>
+</html>
